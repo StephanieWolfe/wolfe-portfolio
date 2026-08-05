@@ -1,5 +1,8 @@
 <template>
   <div class="projects">
+    <div class="projects-banner">
+      <img src="/images/banner-about.png" alt="Projects I've Built" class="projects-banner-img" />
+    </div>
     <h1>Projects</h1>
     <p class="subtitle">A collection of things I've built — from enterprise insurance systems to modern full-stack applications.</p>
 
@@ -69,6 +72,21 @@ export default {
 </script>
 
 <style scoped>
+.projects-banner {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.projects-banner-img {
+  width: 100%;
+  margin-top: -35%;
+  border-radius: 10px;
+}
+
 .projects h1 {
   font-size: 32px;
   font-weight: 700;
