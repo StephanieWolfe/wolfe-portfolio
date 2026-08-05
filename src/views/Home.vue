@@ -1,8 +1,7 @@
 <template>
   <div class="home">
     <section class="hero">
-      <h1>Hi, I'm Stephanie Wolfe</h1>
-      <p class="tagline">Software Engineer & Technical Lead with 12 years of enterprise development experience in the insurance industry.</p>
+      <img src="/images/banner-home.png" alt="Stephanie Wolfe - Software Engineer & Technical Lead" class="hero-banner" />
       <div class="hero-links">
         <a href="https://github.com/StephanieWolfe" target="_blank" class="btn btn-primary">View GitHub</a>
         <router-link to="/projects" class="btn btn-secondary">See My Work</router-link>
@@ -61,14 +60,14 @@ export default {
 
 .hero {
   text-align: center;
-  padding: 48px 0;
+  padding: 0 0 40px 0;
 }
 
-.hero h1 {
-  font-size: 42px;
-  font-weight: 700;
-  color: #1A2B3C;
-  margin-bottom: 16px;
+.hero-banner {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 32px;
+  display: block;
 }
 
 .tagline {

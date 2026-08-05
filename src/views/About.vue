@@ -1,5 +1,8 @@
 <template>
   <div class="about">
+    <div class="about-banner">
+      <img src="/images/banner-about.png" alt="About Stephanie Wolfe" class="about-banner-img" />
+    </div>
     <h1>About Me</h1>
 
     <div class="about-grid">
@@ -66,6 +69,20 @@ export default {
 </script>
 
 <style scoped>
+.about-banner {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 32px;
+}
+
+.about-banner-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
 .about h1 {
   font-size: 32px;
   font-weight: 700;
