@@ -1,5 +1,8 @@
 <template>
   <div class="blog">
+    <div class="blog-banner">
+      <img src="/images/banner-blog.png" alt="Blog" class="blog-banner-img" />
+    </div>
     <h1>Blog</h1>
     <p class="subtitle">Thoughts on software development, legacy modernization, and what I'm learning.</p>
 
@@ -67,6 +70,23 @@ export default {
   font-weight: 700;
   margin-bottom: 12px;
   color: #1A2B3C;
+}
+
+.blog-banner {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 32px;
+  position: relative;
+  isolation: isolate;
+}
+
+.blog-banner-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
 }
 
 .subtitle {

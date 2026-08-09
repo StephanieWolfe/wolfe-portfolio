@@ -78,6 +78,7 @@ export default {
   color: #4A90D9;
   font-weight: 500;
   margin-bottom: 8px;
+  text-align: left;
 }
 
 h1 {
@@ -86,6 +87,7 @@ h1 {
   color: #1A2B3C;
   margin-bottom: 24px;
   line-height: 1.3;
+  text-align: left;
 }
 
 .post-content {
@@ -93,6 +95,7 @@ h1 {
   color: #334455;
   line-height: 1.8;
   white-space: pre-wrap;
+  text-align: left;
 }
 
 .btn {
