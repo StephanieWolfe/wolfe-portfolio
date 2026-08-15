@@ -45,6 +45,7 @@
 <script>
 import axios from 'axios';
 import API_BASE from '../api';
+import { isLoggedIn, getToken } from '../auth';
 
 export default {
   name: 'NewPost',
@@ -70,6 +71,11 @@ export default {
         .trim()
         .replace(/\s+/g, '-');
     },
+    mounted() {
+    if (!isLoggedIn()) {
+        this.$router.push('/login');
+      }
+    },
     async handleSubmit() {
       this.error = null;
       this.success = false;
@@ -81,7 +87,9 @@ export default {
 
       this.loading = true;
       try {
-        await axios.post(`${API_BASE}/api/blog/posts`, this.form);
+        await axios.post(`${API_BASE}/api/blog/posts`, this.form, {
+          headers: { Authorization: `Bearer ${getToken()}` }
+        });
         this.success = true;
         this.form = { title: '', slug: '', summary: '', content: '', published: true };
       } catch (err) {

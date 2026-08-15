@@ -14,14 +14,34 @@
 
     <div v-else class="post-list">
       <div v-for="post in posts" :key="post.id" class="post-card" @click="goToPost(post.slug)">
-        <div class="post-meta">{{ formatDate(post.created_at) }}</div>
+        <div class="post-meta">
+          {{ formatDate(post.created_at) }}
+          <span v-if="isLoggedIn && !post.published" class="draft-badge">Draft</span>
+        </div>
         <h2>{{ post.title }}</h2>
         <p>{{ post.summary }}</p>
-        <span class="read-more">Read more →</span>
+        <div class="post-footer">
+          <span class="read-more">Read more →</span>
+          <div class="admin-actions" v-if="isLoggedIn">
+            <router-link
+              :to="`/blog/edit/${post.slug}`"
+              class="edit-btn"
+              @click.stop
+            >
+              Edit
+            </router-link>
+            <button
+              @click.stop="deletePost(post.id)"
+              class="delete-btn"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="write-link">
+    <div v-if="isLoggedIn" class="write-link">
       <router-link to="/blog/new" class="btn btn-secondary">+ Write a Post</router-link>
     </div>
   </div>
@@ -30,6 +50,7 @@
 <script>
 import axios from 'axios';
 import API_BASE from '../api';
+import { isLoggedIn, getToken } from '../auth';
 
 export default {
   name: 'Blog',
@@ -37,16 +58,26 @@ export default {
     return {
       posts: [],
       loading: true,
+      isLoggedIn: false,
     }
   },
   async mounted() {
+    this.isLoggedIn = isLoggedIn();
     try {
-      const response = await axios.get(`${API_BASE}/api/blog/posts`);
+      const headers = this.isLoggedIn
+        ? { Authorization: `Bearer ${getToken()}` }
+        : {};
+      const response = await axios.get(`${API_BASE}/api/blog/posts`, { headers });
       this.posts = response.data;
     } catch (err) {
       console.error('Failed to fetch posts:', err);
     } finally {
       this.loading = false;
+    }
+  },
+  watch: {
+    $route() {
+      this.isLoggedIn = isLoggedIn();
     }
   },
   methods: {
@@ -59,6 +90,17 @@ export default {
         month: 'long',
         day: 'numeric'
       });
+    },
+    async deletePost(id) {
+      if (!confirm('Delete this post?')) return;
+      try {
+        await axios.delete(`${API_BASE}/api/blog/posts/${id}`, {
+          headers: { Authorization: `Bearer ${getToken()}` }
+        });
+        this.posts = this.posts.filter(p => p.id !== id);
+      } catch (err) {
+        alert('Failed to delete post');
+      }
     }
   }
 }
@@ -144,6 +186,27 @@ export default {
   margin-bottom: 12px;
 }
 
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background: #FDEAEA;
+  color: #C0392B;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #C0392B;
+  color: white;
+}
+
 .read-more {
   font-size: 13px;
   color: #4A90D9;
@@ -166,5 +229,38 @@ export default {
   background-color: white;
   color: #1A2B3C;
   border: 1px solid #D5DCE3;
+}
+
+.draft-badge {
+  background: #FFF3CD;
+  color: #856404;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 8px;
+  text-transform: uppercase;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.edit-btn {
+  background: #EEF5FB;
+  color: #4A90D9;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.edit-btn:hover {
+  background: #4A90D9;
+  color: white;
 }
 </style>

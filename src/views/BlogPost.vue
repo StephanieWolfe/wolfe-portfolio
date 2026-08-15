@@ -14,11 +14,15 @@
       <div class="post-content">{{ post.content }}</div>
     </div>
   </div>
+  <div class="post-actions" v-if="isLoggedIn">
+    <button @click="deletePost" class="delete-btn">Delete Post</button>
+  </div>
 </template>
 
 <script>
 import axios from 'axios';
 import API_BASE from '../api';
+import { isLoggedIn, getToken } from '../auth';
 
 export default {
   name: 'BlogPost',
@@ -27,9 +31,16 @@ export default {
       post: null,
       loading: true,
       error: null,
+      isLoggedIn: false,
+    }
+  },
+  watch: {
+    $route() {
+      this.isLoggedIn = isLoggedIn();
     }
   },
   async mounted() {
+    this.isLoggedIn = isLoggedIn();
     try {
       const slug = this.$route.params.slug;
       const response = await axios.get(`${API_BASE}/api/blog/posts/${slug}`);
@@ -49,6 +60,17 @@ export default {
         month: 'long',
         day: 'numeric'
       });
+    },
+    async deletePost() {
+      if (!confirm('Delete this post?')) return;
+      try {
+        await axios.delete(`${API_BASE}/api/blog/posts/${this.post.id}`, {
+          headers: { Authorization: `Bearer ${getToken()}` }
+        });
+        this.$router.push('/blog');
+      } catch (err) {
+        alert('Failed to delete post');
+      }
     }
   }
 }
@@ -79,6 +101,25 @@ export default {
   font-weight: 500;
   margin-bottom: 8px;
   text-align: left;
+}
+
+.post-actions {
+  margin-bottom: 24px;
+}
+
+.delete-btn {
+  background: #FDEAEA;
+  color: #C0392B;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #C0392B;
+  color: white;
 }
 
 h1 {

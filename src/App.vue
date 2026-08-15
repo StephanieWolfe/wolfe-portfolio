@@ -9,6 +9,8 @@
         <router-link to="/projects">Projects</router-link>
         <router-link to="/about">About</router-link>
         <router-link to="/blog">Blog</router-link>
+        <router-link v-if="!loggedIn" to="/login" class="nav-login">Login</router-link>
+        <button v-if="loggedIn" @click="handleLogout" class="nav-logout">Logout</button>
       </div>
     </nav>
 
@@ -23,8 +25,32 @@
 </template>
 
 <script>
+import { isLoggedIn, logout } from './auth';
+
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      loggedIn: false
+    }
+  },
+  mounted() {
+    this.loggedIn = isLoggedIn();
+  },
+  watch: {
+    $route() {
+      this.loggedIn = isLoggedIn();
+    }
+  },
+  methods: {
+    handleLogout() {
+      logout();
+      this.loggedIn = false;
+      this.$router.push('/blog').then(() => {
+        this.$router.go(0);
+      });
+    }
+  }
 }
 </script>
 
@@ -77,6 +103,25 @@ body {
 .nav-links a:hover,
 .nav-links a.router-link-active {
   color: white;
+}
+
+.nav-login {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+}
+
+.nav-logout {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.nav-logout:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .main-content {
