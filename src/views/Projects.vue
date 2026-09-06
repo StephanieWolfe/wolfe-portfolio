@@ -64,6 +64,15 @@ export default {
           tech: 'Snowflake · SQL · Microsoft Access',
           liveUrl: null,
           githubUrl: null
+        },
+        {
+          id: 5,
+          title: 'Recipe Book',
+          tag: 'Full-Stack',
+          description: 'A full-stack recipe management application with a classic cookbook aesthetic. Features include recipe browsing by category, photo uploads via Cloudinary, full CRUD with JWT authentication, and a two-column cookbook-style recipe detail layout. Built with Vue, Node.js, PostgreSQL, and the Playfair Display serif font to give it a genuine recipe book feel.',
+          tech: 'Vue · Node.js · Express · PostgreSQL · Cloudinary · JWT Auth · Render',
+          liveUrl: 'https://recipe-book-9anl.onrender.com',
+          githubUrl: 'https://github.com/StephanieWolfe/recipe-book'
         }
       ]
     }
