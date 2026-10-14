@@ -9,6 +9,7 @@
         <router-link to="/projects">Projects</router-link>
         <router-link to="/about">About</router-link>
         <router-link to="/blog">Blog</router-link>
+        <a href="/Stephanie-Wolfe-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         <router-link v-if="!loggedIn" to="/login" class="nav-login">Login</router-link>
         <button v-if="loggedIn" @click="handleLogout" class="nav-logout">Logout</button>
       </div>
@@ -19,7 +20,7 @@
     </main>
 
     <footer class="footer">
-      <p>© 2026 Stephanie Wolfe · <a href="https://github.com/StephanieWolfe" target="_blank">GitHub</a> · <a href="https://linkedin.com/in/stephanie-wolfe" target="_blank">LinkedIn</a></p>
+      <p>© 2026 Stephanie Wolfe · <a href="mailto:stephymeyers1990@gmail.com">Email</a> · <a href="https://github.com/StephanieWolfe" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://linkedin.com/in/stephanie-wolfe" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     </footer>
   </div>
 </template>
@@ -105,8 +106,13 @@ body {
   color: white;
 }
 
+.nav-links a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+
 .nav-login {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 13px;
 }
 
@@ -122,6 +128,20 @@ body {
 
 .nav-logout:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 18px;
+  }
 }
 
 .main-content {
