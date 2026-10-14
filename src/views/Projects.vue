@@ -5,6 +5,7 @@
     </div>
     <h1>Projects</h1>
     <p class="subtitle">A collection of things I've built — from enterprise insurance systems to modern full-stack applications.</p>
+    <p class="demo-note">Live demos run on free hosting, so the first load may take up to a minute while the server wakes up.</p>
 
     <div class="project-list">
       <div class="project-card" v-for="project in projects" :key="project.id">
@@ -15,8 +16,8 @@
         <p class="project-desc">{{ project.description }}</p>
         <p class="project-tech">{{ project.tech }}</p>
         <div class="project-links">
-          <a v-if="project.liveUrl" :href="project.liveUrl" target="_blank" class="btn btn-primary">Live Demo</a>
-          <a v-if="project.githubUrl" :href="project.githubUrl" target="_blank" class="btn btn-secondary">View Code</a>
+          <a v-if="project.liveUrl" :href="project.liveUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live Demo</a>
+          <a v-if="project.githubUrl" :href="project.githubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Code</a>
         </div>
       </div>
     </div>
@@ -34,7 +35,7 @@ export default {
           title: 'Insurance Quote App',
           tag: 'Full-Stack',
           description: 'A full-stack auto insurance application with a rules-based premium calculation engine factoring driver age, vehicle age, and coverage type. Includes an AI-powered coverage recommendation feature using the Anthropic Claude API, grounded in real calculated data to prevent hallucinated pricing.',
-          tech: 'Vue · Node.js · Express · PostgreSQL · Zod · Anthropic API · Render',
+          tech: 'React · Node.js · Express · PostgreSQL · Zod · Anthropic API · Render',
           liveUrl: 'https://insurance-api-client.onrender.com',
           githubUrl: 'https://github.com/StephanieWolfe/insurance-api'
         },
@@ -106,8 +107,15 @@ export default {
 .subtitle {
   font-size: 16px;
   color: #556677;
-  margin-bottom: 40px;
+  margin-bottom: 12px;
   line-height: 1.6;
+}
+
+.demo-note {
+  font-size: 14px;
+  color: #556677;
+  margin-bottom: 40px;
+  line-height: 1.5;
 }
 
 .project-list {
