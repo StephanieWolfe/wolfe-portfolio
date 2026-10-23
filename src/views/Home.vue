@@ -3,11 +3,15 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <h1 id="hero-title">Stephanie Wolfe</h1>
-        <p class="role">Technical Lead | Software Engineer</p>
+        <p class="role">Software Engineer</p>
         <p class="intro">
           12 years of hands-on development in P&amp;C insurance, including technical lead
           experience. I modernize legacy systems and build full-stack apps with React, Vue,
           Node.js, and PostgreSQL.
+        </p>
+        <p class="target">
+          Seeking senior software engineer and technical lead roles focused on writing and
+          shipping code.
         </p>
         <p class="tagline">Modernizing legacy systems for what's next.</p>
         <div class="hero-links">
@@ -45,11 +49,12 @@
         <h3>Insurance Quote App</h3>
         <p>
           A full-stack auto insurance app: a React front end on a Node.js and Express REST API
-          with PostgreSQL. A rules-based engine calculates premiums. A Claude-powered assistant
-          recommends coverage using those calculated numbers, so it can't invent prices, and a
-          tool-calling chat endpoint answers questions by querying the policies table.
+          with PostgreSQL. A multi-factor rating engine calculates premiums from coverage type,
+          driver age, vehicle age, and vehicle value. AI-generated coverage recommendations are
+          grounded in those calculated premiums, and a tool-calling chat endpoint answers
+          questions by querying the policies table. Solo project.
         </p>
-        <p class="tech">React · Node.js · Express · PostgreSQL · Zod · Anthropic API</p>
+        <p class="tech">React · Node.js · Express · PostgreSQL · Zod · Anthropic API · Render</p>
         <div class="project-links">
           <a href="https://insurance-api-client.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live Demo</a>
           <a href="https://github.com/StephanieWolfe/insurance-api" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Code</a>
@@ -78,8 +83,9 @@ export default {
         { label: 'Languages', items: 'JavaScript, SQL, COBOL, REXX, PowerShell' },
         { label: 'Front end', items: 'React, Vue' },
         { label: 'Back end', items: 'Node.js, Express, REST API design, JWT authentication, Zod' },
-        { label: 'Data', items: 'PostgreSQL, MySQL' },
+        { label: 'Data', items: 'PostgreSQL, MySQL, Snowflake' },
         { label: 'AI integration', items: 'Anthropic Claude API, including tool calling' },
+        { label: 'Other', items: 'Apache FOP, Cloudinary, Render' },
         { label: 'Learning', items: 'TypeScript' },
         { label: 'Domain', items: 'P&C insurance systems: policy administration, billing, claims, legacy modernization' }
       ]
@@ -144,6 +150,14 @@ export default {
   font-size: 16px;
   line-height: 1.65;
   color: var(--on-dark);
+}
+
+.target {
+  margin-top: 12px;
+  max-width: 52ch;
+  font-size: 16px;
+  line-height: 1.65;
+  color: white;
 }
 
 .tagline {

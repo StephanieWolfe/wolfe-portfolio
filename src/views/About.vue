@@ -6,8 +6,8 @@
       <div class="about-main">
         <section class="about-section">
           <h2>Who I Am</h2>
-          <p>I'm a software engineer and technical lead based in Rockwood, Pennsylvania, with 12 years of hands-on development experience in the insurance industry. I started as an entry-level developer and moved through solutions analyst, service delivery manager, tech lead, and now Director of IT, staying close to the code throughout. Today I still write and review production code.</p>
-          <p>My career has followed one pattern: finding legacy systems and making them better. I've migrated flat files to SQL, moved DOS screens to web interfaces, replaced Object REXX with PowerShell, and helped modernize a General Liability platform.</p>
+          <p>I'm a software engineer based in Rockwood, Pennsylvania, with 12 years of experience in the insurance industry. I started as a developer and kept developing as my responsibilities grew: solutions analyst, service delivery manager, tech lead, and now Director of IT. I write less code than I used to, but I still build the first working version of new work, then hand it to junior developers to replicate.</p>
+          <p>My career has followed one pattern: finding legacy systems and making them better. I've migrated flat files to SQL, moved DOS screens to web interfaces, replaced Object REXX with PowerShell, led a General Liability platform modernization, and built the proof of concept for moving Access databases to Snowflake.</p>
         </section>
 
         <section class="about-section">
@@ -16,7 +16,9 @@
           <ol class="roles">
             <li v-for="role in roles" :key="role.title">
               <h3>{{ role.title }} <span class="dates">{{ role.dates }}</span></h3>
-              <p>{{ role.summary }}</p>
+              <ul class="role-points">
+                <li v-for="point in role.points" :key="point">{{ point }}</li>
+              </ul>
             </li>
           </ol>
         </section>
@@ -67,27 +69,36 @@ export default {
         {
           title: 'Director of IT',
           dates: '2024–Present',
-          summary: 'Still writing and reviewing production code. Configured, tested, and recompiled our Visual COBOL 6 to 10 upgrade, and defined the approach for an Access to Snowflake migration.'
+          points: [
+            'I build the first working version of new work, then hand it to junior developers to replicate.',
+            'Built the proof of concept for moving over 100 Access databases to Snowflake: connected one database end to end and migrated the MySQL table views it depended on, translating the queries to Snowflake SQL. A developer is repeating the work for the rest.',
+            'Stood up the servers and groundwork for a new QA environment so we can run a full batch cycle there.',
+            'Helped resolve production batch issues after the General Liability platform went live.',
+            'Configured, tested, and recompiled our Visual COBOL 6 to 10 upgrade.'
+          ]
         },
         {
           title: 'Tech Lead',
           dates: '2021–2024',
-          summary: 'Contributed to a General Liability platform modernization (DOS screens to web, flat files to SQL, fillable PDFs with Apache FOP). Led the move from Net Express to Visual COBOL, the MySQL 5 to 8 upgrade, and the replacement of Object REXX with PowerShell.'
+          points: [
+            'Led a General Liability platform modernization (DOS screens to web, flat files to SQL, fillable PDFs with Apache FOP) and personally migrated the flat files to SQL.',
+            'Led the move from Net Express to Visual COBOL, the MySQL 5 to 8 upgrade, and the replacement of Object REXX with PowerShell.'
+          ]
         },
         {
           title: 'Associate Service Delivery Manager',
           dates: '2019–2021',
-          summary: 'Led development teams delivering production systems, with hands-on involvement in design and code review.'
+          points: ['Led development teams delivering production systems, with hands-on involvement in design and code review.']
         },
         {
           title: 'Solutions Analyst',
           dates: '2018–2019',
-          summary: 'Found inefficient routines in production systems and built solutions that reduced errors and improved performance.'
+          points: ['Found inefficient routines in production systems and built solutions that reduced errors and improved performance.']
         },
         {
           title: 'Software Developer',
           dates: '2014–2018',
-          summary: 'Built a vehicle data management system, migrated legacy index files to SQL tables, and consolidated four General Ledger files into one database table.'
+          points: ['Built a vehicle data management system, migrated legacy index files to SQL tables, and consolidated four General Ledger files into one database table.']
         }
       ]
     }
@@ -159,9 +170,16 @@ export default {
   margin-left: 8px;
 }
 
-.roles p {
-  margin-bottom: 0;
+.role-points {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.role-points li {
+  font-size: 15px;
+  color: #556677;
   line-height: 1.6;
+  margin-bottom: 4px;
 }
 
 .sidebar-card {

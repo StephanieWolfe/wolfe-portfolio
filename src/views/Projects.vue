@@ -34,7 +34,7 @@ export default {
           id: 1,
           title: 'Insurance Quote App',
           tag: 'Full-Stack',
-          description: 'A full-stack auto insurance application with a rules-based premium calculation engine factoring driver age, vehicle age, and coverage type. Includes an AI-powered coverage recommendation feature using the Anthropic Claude API, grounded in real calculated data to prevent hallucinated pricing.',
+                    description: 'A full-stack auto insurance application with a multi-factor rating engine: a base rate by coverage type (liability, collision, full), adjusted for driver age, vehicle age, and vehicle value. Intentionally simplified compared with real underwriting. Includes AI-generated coverage recommendations grounded in the calculated premiums, and a tool-calling chat endpoint that answers questions by querying the policies table. Solo project.',
           tech: 'React · Node.js · Express · PostgreSQL · Zod · Anthropic API · Render',
           liveUrl: 'https://insurance-api-client.onrender.com',
           githubUrl: 'https://github.com/StephanieWolfe/insurance-api'
@@ -43,7 +43,7 @@ export default {
           id: 2,
           title: 'General Liability Platform Modernization',
           tag: 'Legacy Modernization',
-          description: 'Led and contributed hands-on development to replace a 20-30 year old General Liability insurance platform. Converted hardcoded rate values to database-driven tables, migrated flat files to SQL, transitioned DOS-based screens to a web interface, and implemented fillable PDF generation using Apache FOP — all built in COBOL.',
+                    description: 'Led the replacement of a 20-30 year old General Liability insurance platform and personally migrated its flat files to SQL. The project converted hardcoded rate values to database-driven tables, moved DOS-based screens to a web interface, and added fillable PDF generation using Apache FOP, all built in COBOL. After go-live, helped resolve production batch issues. Employer system, code not public.',
           tech: 'COBOL · SQL · HTML · Apache FOP',
           liveUrl: null,
           githubUrl: null
@@ -52,7 +52,7 @@ export default {
           id: 3,
           title: 'General Ledger Data Migration',
           tag: 'Data Migration',
-          description: 'Converted the General Ledger system from flat file storage to SQL tables, consolidating four separate ledger detail files into a single unified database table. Improved data integrity, simplified downstream reporting, and reduced maintenance overhead.',
+          description: 'Converted the General Ledger system from flat file storage to SQL tables, consolidating four separate ledger detail files into a single unified database table. Improved data integrity, simplified downstream reporting, and reduced maintenance overhead. Employer system, code not public.',
           tech: 'COBOL · SQL · MySQL',
           liveUrl: null,
           githubUrl: null
@@ -61,8 +61,17 @@ export default {
           id: 4,
           title: 'Access to Snowflake Migration',
           tag: 'In Progress',
-          description: 'Leading migration of a Microsoft Access database to Snowflake cloud data platform. Conducted initial technical investigation, defined the migration approach and data mapping strategy, and directed the development team on implementation path.',
-          tech: 'Snowflake · SQL · Microsoft Access',
+                    description: 'Proof of concept for moving over 100 Microsoft Access databases to Snowflake. I connected one database to Snowflake and pulled its data end to end, and migrated the MySQL table views it depended on, translating the queries to Snowflake SQL with help from Snowflake\'s AI assistant. I then handed the pattern to a developer to repeat for the remaining databases. Employer system, code not public.',
+          tech: 'Snowflake · SQL · MySQL · Microsoft Access',
+          liveUrl: null,
+          githubUrl: null
+        },
+        {
+          id: 6,
+          title: 'Object REXX to PowerShell Replacement',
+          tag: 'Legacy Modernization',
+          description: 'Led a multi-year initiative to replace Object REXX scripting with PowerShell across enterprise systems, completing the full transition and eliminating REXX from the codebase. Employer system, code not public.',
+          tech: 'PowerShell · Object REXX',
           liveUrl: null,
           githubUrl: null
         },
@@ -70,7 +79,7 @@ export default {
           id: 5,
           title: 'Recipe Book',
           tag: 'Full-Stack',
-          description: 'A full-stack recipe management application with a classic cookbook aesthetic. Features include recipe browsing by category, photo uploads via Cloudinary, full CRUD with JWT authentication, and a two-column cookbook-style recipe detail layout. Built with Vue, Node.js, PostgreSQL, and the Playfair Display serif font to give it a genuine recipe book feel.',
+          description: 'A full-stack recipe management application with a classic cookbook aesthetic. Features include recipe browsing by category, photo uploads via Cloudinary, full CRUD with JWT authentication, and a two-column cookbook-style recipe detail layout. Built with Vue, Node.js, and PostgreSQL. Solo project.',
           tech: 'Vue · Node.js · Express · PostgreSQL · Cloudinary · JWT Auth · Render',
           liveUrl: 'https://recipe-book-9anl.onrender.com',
           githubUrl: 'https://github.com/StephanieWolfe/recipe-book'
