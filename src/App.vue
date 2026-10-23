@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="site">
     <nav class="navbar">
       <div class="nav-brand">
         <router-link to="/">Stephanie Wolfe</router-link>
@@ -20,7 +20,7 @@
     </main>
 
     <footer class="footer">
-      <p>© 2026 Stephanie Wolfe · <a href="mailto:stephymeyers1990@gmail.com">Email</a> · <a href="https://github.com/StephanieWolfe" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://linkedin.com/in/stephanie-wolfe" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+      <p>© 2026 Stephanie Wolfe · <a href="mailto:stephymeyers1990@gmail.com">Email</a> · <a href="/Stephanie-Wolfe-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a> · <a href="https://github.com/StephanieWolfe" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://linkedin.com/in/stephanie-wolfe" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     </footer>
   </div>
 </template>
@@ -32,11 +32,8 @@ export default {
   name: 'App',
   data() {
     return {
-      loggedIn: false
+      loggedIn: isLoggedIn()
     }
-  },
-  mounted() {
-    this.loggedIn = isLoggedIn();
   },
   watch: {
     $route() {
@@ -68,7 +65,7 @@ body {
   color: #1A2B3C;
 }
 
-#app {
+.site {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -162,7 +159,13 @@ body {
 
 .footer a {
   color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
 }
 
 .footer a:hover {
