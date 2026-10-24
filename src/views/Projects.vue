@@ -1,7 +1,7 @@
 <template>
   <div class="projects">
     <div class="projects-banner">
-      <img src="/images/banner-about.png" alt="Projects I've Built" class="projects-banner-img" />
+      <img src="/images/banner-projects.webp" alt="Projects I've Built" width="1400" height="465" class="projects-banner-img" />
     </div>
     <h1>Projects</h1>
     <p class="subtitle">A collection of things I've built — from enterprise insurance systems to modern full-stack applications.</p>
@@ -93,16 +93,15 @@ export default {
 <style scoped>
 .projects-banner {
   width: 100%;
-  height: 300px;
   overflow: hidden;
   border-radius: 10px;
   margin-bottom: 32px;
-  position: relative;
 }
 
 .projects-banner-img {
+  display: block;
   width: 100%;
-  margin-top: -35%;
+  height: auto;
   border-radius: 10px;
 }
 
