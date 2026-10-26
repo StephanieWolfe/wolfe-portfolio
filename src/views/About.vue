@@ -51,7 +51,7 @@
           <ul>
             <li><a href="/Stephanie-Wolfe-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a></li>
             <li><a href="https://github.com/StephanieWolfe" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="https://linkedin.com/in/stephanie-wolfe" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/stephanie-wolfe-dev" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li><a href="mailto:stephymeyers1990@gmail.com">stephymeyers1990@gmail.com</a></li>
           </ul>
         </div>
