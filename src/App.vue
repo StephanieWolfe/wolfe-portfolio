@@ -20,7 +20,7 @@
     </main>
 
     <footer class="footer">
-      <p>© 2026 Stephanie Wolfe · <a href="mailto:stephymeyers1990@gmail.com">Email</a> · <a href="/Stephanie-Wolfe-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a> · <a href="https://github.com/StephanieWolfe" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://linkedin.com/in/stephanie-wolfe" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+      <p>© 2026 Stephanie Wolfe · <a href="mailto:stephymeyers1990@gmail.com">Email</a> · <a href="/Stephanie-Wolfe-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a> · <a href="https://github.com/StephanieWolfe" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/stephanie-wolfe-dev" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     </footer>
   </div>
 </template>
